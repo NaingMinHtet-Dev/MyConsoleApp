@@ -21,3 +21,4 @@ using MyConsoleApp.EFCoreExamples;
 
 new EFCoreExample().Read();
 
+
