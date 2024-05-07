@@ -23,5 +23,53 @@ namespace MyConsoleApp.EFCoreExamples
                 Console.WriteLine(item.BlogContent);
             }
         }
+
+        public void Edit(int id)
+        {
+            AppDbContext appDbContext = new AppDbContext();    
+            BlogModel item = appDbContext.Blogs.FirstOrDefault(item => item.Id == id);
+
+            if(item is null)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
+
+            Console.WriteLine(item.Id);
+            Console.WriteLine(item.BlogTitle);
+            Console.WriteLine(item.BlogAuthor);
+            Console.WriteLine(item.BlogContent);
+        }
+
+        public void Create(string title, string author, string content)
+        {
+            BlogModel blogModel = new BlogModel()
+            {
+                BlogTitle = title,
+                BlogAuthor = author,
+                BlogContent = content
+            };
+
+            AppDbContext appDbContext = new AppDbContext();
+            appDbContext.Blogs.Add(blogModel);
+            appDbContext.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            AppDbContext appDbContext = new AppDbContext();
+            BlogModel item = appDbContext.Blogs.FirstOrDefault(item => item.Id == id);
+            if (item is null)
+            {
+                Console.WriteLine("No data found.");
+                return;
+            }
+
+            appDbContext.Blogs.Remove(item);
+            int result = appDbContext.SaveChanges();
+
+            string message = result > 0 ? "Delete successfully." : "Fail to delete.";
+            Console.WriteLine(message);
+        }
     }
 }

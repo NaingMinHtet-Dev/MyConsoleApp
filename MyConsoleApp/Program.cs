@@ -19,6 +19,11 @@ using MyConsoleApp.EFCoreExamples;
 //new DapperExample().Update(3, "Ebook", "Naing Min Htet", "ABCDEFG");
 //new DapperExample().Delete(5);
 
-new EFCoreExample().Read();
+//new EFCoreExample().Read();
+//new EFCoreExample().Edit(1);
+//new EFCoreExample().Edit(2);
+//new EFCoreExample().Create("Lazy Man", "Ryan", "Smoke Weed Everyday");
+
+new EFCoreExample().Delete(4);
 
 
