@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,7 +26,7 @@ namespace MyConsoleApp.EFCoreExamples
         public void Edit(int id)
         {
             AppDbContext appDbContext = new AppDbContext();    
-            BlogModel item = appDbContext.Blogs.FirstOrDefault(item => item.Id == id);
+            BlogModel? item = appDbContext.Blogs.FirstOrDefault(item => item.Id == id);
 
             if(item is null)
             {
@@ -58,7 +57,7 @@ namespace MyConsoleApp.EFCoreExamples
         public void Delete(int id)
         {
             AppDbContext appDbContext = new AppDbContext();
-            BlogModel item = appDbContext.Blogs.FirstOrDefault(item => item.Id == id);
+            BlogModel? item = appDbContext.Blogs.FirstOrDefault(item => item.Id == id);
             if (item is null)
             {
                 Console.WriteLine("No data found.");

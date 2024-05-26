@@ -6,6 +6,7 @@
 using MyConsoleApp.AdoDotNetExamples;
 using MyConsoleApp.DapperExamples;
 using MyConsoleApp.EFCoreExamples;
+using MyConsoleApp.HttpClientExamples;
 
 //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 //adoDotNetExample.Create("PDF", "Ryan", "CV");
@@ -24,6 +25,11 @@ using MyConsoleApp.EFCoreExamples;
 //new EFCoreExample().Edit(2);
 //new EFCoreExample().Create("Lazy Man", "Ryan", "Smoke Weed Everyday");
 
-new EFCoreExample().Delete(4);
+//new EFCoreExample().Delete(4);
+
+Console.WriteLine("Waiting for api...");
+Console.ReadKey();
+HttpClientExample httpClientExample = new HttpClientExample();
+await httpClientExample.Run();
 
 
